@@ -1,0 +1,36 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "a dating app using express to handle routing",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shirleymramirez/Friend-Finder---Node-and-Express-Servers.git"
+  },
+  "author": "Shirley Ramirez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shirleymramirez/Friend-Finder---Node-and-Express-Servers/issues"
+  },
+  "homepage": "https://github.com/shirleymramirez/Friend-Finder---Node-and-Express-Servers#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "a",
+    "dating",
+    "app",
+    "using",
+    "express",
+    "to",
+    "handle",
+    "routing"
+  ]
+}
