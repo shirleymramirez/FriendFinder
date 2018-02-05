@@ -9,8 +9,27 @@ module.exports = function(app) {
 
     // A POST routes this will be used to handle incoming survey results.
     app.post('/api/friends', function(req, res) {
+        // console.log(req);
+        // console.log(res);
 
         var newFriendData = req.body;
+        console.log(newFriendData);
+
+        var userResponse = newFriendData.scores;
+
+        console.log("userResponse: ", userResponse);
+
+        for (var i = 0; i < friendData.length; i++) {
+            console.log(JSON.stringify(friendData[i].scores));
+
+            if () {
+
+            }
+
+            // for (var i = 0; i < ) {
+
+            // }
+        }
 
         friendData.push(newFriendData);
 
