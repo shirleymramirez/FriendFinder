@@ -157,7 +157,7 @@
     </div>
 
     <!-- modal -->
-    <div id="results-modal" class="modal fade" role="dialog">
+    <div id="resultsModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -167,8 +167,8 @@
                     <h2 class="modal-title"><strong>Best Match</strong></h2>
                 </div>
                 <div class="modal-body">
-                    <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/" alt="">
+                    <h2 id="matchName"></h2>
+                    <img id="matchImage" src="http://dreamicus.com/data/lamb/lamb-02.jpg" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -208,11 +208,11 @@
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function(data) {
-                    //
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
+                    console.log(data);
+                    $("#matchName").html(data.matchName);
+                    $("#matchImage").attr("src", data.matchImage);
 
-                    $("#results-modal").modal("toggle");
+                    $("#resultsModal").modal("toggle");
                 }
             });
         });

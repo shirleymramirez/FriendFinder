@@ -9,35 +9,42 @@ module.exports = function(app) {
 
     // A POST routes this will be used to handle incoming survey results.
     app.post('/api/friends', function(req, res) {
-        // console.log(req);
-        // console.log(res);
 
         var newFriendData = req.body;
-        // console.log(newFriendData);
 
         var userResponse = newFriendData.scores;
         console.log(userResponse);
 
+        var index = [];
+
         for (var i = 0; i < friendData.length; i++) {
-            // console.log(JSON.stringify(friendData[i].scores));
 
-            var serverData = JSON.stringify(friendData[i].scores);
+            var diff = 0;
+            for (var j = 0; j < userResponse.length; j++) {
+                diff += Math.abs(friendData[i].scores[j] - userResponse[j]);
+            }
 
-            console.log(serverData);
+            index[i] = diff;
 
-
-            // if () {
-
-            // }
-
-            // for (var i = 0; i < ) {
-
-            // }
         }
 
-        friendData.push(newFriendData);
+        var smallDif = index[0];
+        var userIndex = 0;
 
-        res.json(newFriendData);
+        for (var i = 0; i < index.length; i++) {
+
+            if (smallDif < index[i]) {
+                userIndex = i;
+                smallDif = index[i];
+            }
+        }
+        var friend = friendData[userIndex];
+        console.log(friend);
+        res.json({
+            status: "OK",
+            matchName: friend.name,
+            matchImage: friend.photo
+        });
     });
 
 }
