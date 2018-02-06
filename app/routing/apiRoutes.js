@@ -13,18 +13,22 @@ module.exports = function(app) {
         // console.log(res);
 
         var newFriendData = req.body;
-        console.log(newFriendData);
+        // console.log(newFriendData);
 
         var userResponse = newFriendData.scores;
-
-        console.log("userResponse: ", userResponse);
+        console.log(userResponse);
 
         for (var i = 0; i < friendData.length; i++) {
-            console.log(JSON.stringify(friendData[i].scores));
+            // console.log(JSON.stringify(friendData[i].scores));
 
-            if () {
+            var serverData = JSON.stringify(friendData[i].scores);
 
-            }
+            console.log(serverData);
+
+
+            // if () {
+
+            // }
 
             // for (var i = 0; i < ) {
 
