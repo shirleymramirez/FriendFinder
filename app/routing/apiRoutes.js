@@ -15,32 +15,32 @@ module.exports = function(app) {
         var userResponse = newFriendData.scores;
         console.log(userResponse);
 
-        var index = [];
-
+        var difference;
+        var leastDifference;
+        var bestUserMatchIndex;
         for (var i = 0; i < friendData.length; i++) {
 
-            var diff = 0;
+            difference = 0;
             for (var j = 0; j < userResponse.length; j++) {
-                diff += Math.abs(friendData[i].scores[j] - userResponse[j]);
+                difference += Math.abs(friendData[i].scores[j] - userResponse[j]);
             }
 
-            index[i] = diff;
-            // index.push(diff);
+            // not yet initialized
+            if (leastDifference === undefined) {
+                leastDifference = difference;
+                bestUserMatchIndex = i;
+            }
 
-        }
-
-        var smallDif = index[0];
-        var userIndex = 0;
-
-        for (var i = 0; i < index.length; i++) {
-
-            if (smallDif >= index[i]) {
-                userIndex = i;
-                smallDif = index[i];
+            // if difference is smaller, its a better match
+            // update the result
+            if (difference < leastDifference) {
+                leastDifference = difference;
+                bestUserMatchIndex = i;
             }
         }
 
-        var friend = friendData[userIndex];
+        console.log(bestUserMatchIndex);
+        var friend = friendData[bestUserMatchIndex];
 
         res.json({
             status: "OK",
