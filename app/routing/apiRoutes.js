@@ -25,6 +25,7 @@ module.exports = function(app) {
             }
 
             index[i] = diff;
+            // index.push(diff);
 
         }
 
@@ -33,13 +34,14 @@ module.exports = function(app) {
 
         for (var i = 0; i < index.length; i++) {
 
-            if (smallDif < index[i]) {
+            if (smallDif >= index[i]) {
                 userIndex = i;
                 smallDif = index[i];
             }
         }
+
         var friend = friendData[userIndex];
-        console.log(friend);
+
         res.json({
             status: "OK",
             matchName: friend.name,
