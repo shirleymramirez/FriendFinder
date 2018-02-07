@@ -13,7 +13,6 @@ module.exports = function(app) {
         var newFriendData = req.body;
 
         var userResponse = newFriendData.scores;
-        console.log(userResponse);
 
         var difference;
         var leastDifference;
@@ -41,6 +40,8 @@ module.exports = function(app) {
 
         console.log(bestUserMatchIndex);
         var friend = friendData[bestUserMatchIndex];
+
+        friendData.push(newFriendData);
 
         res.json({
             status: "OK",
