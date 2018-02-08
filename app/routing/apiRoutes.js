@@ -11,15 +11,19 @@ module.exports = function(app) {
     app.post('/api/friends', function(req, res) {
 
         var newFriendData = req.body;
-
         var userResponse = newFriendData.scores;
 
         var difference;
         var leastDifference;
         var bestUserMatchIndex;
+
+        // loop through the friendData array of objects to get each friends scores
         for (var i = 0; i < friendData.length; i++) {
 
             difference = 0;
+
+            //loop through that friends score and the UserResponse score and calculate the 
+            // absolute difference between the two and push that to the difference variable set above
             for (var j = 0; j < userResponse.length; j++) {
                 difference += Math.abs(friendData[i].scores[j] - userResponse[j]);
             }
@@ -38,9 +42,7 @@ module.exports = function(app) {
             }
         }
 
-        console.log(bestUserMatchIndex);
         var friend = friendData[bestUserMatchIndex];
-
         friendData.push(newFriendData);
 
         res.json({

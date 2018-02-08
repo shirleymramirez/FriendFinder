@@ -1,3 +1,4 @@
+// DATA array of objects for possible match friend
 module.exports = [{
         name: "Ahmed",
         photo: "https://static.pexels.com/photos/20787/pexels-photo.jpg",
@@ -48,4 +49,4 @@ module.exports = [{
         photo: "http://www.madmonkeyhostels.com/wp-content/uploads/2017/05/Placeholder-Image-400x250.jpg?fd3260",
         scores: [5, 3, 2, 2, 1, 1, 3, 3, 2, 5]
     }
-];  
+];
